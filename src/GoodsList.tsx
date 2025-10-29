@@ -20,3 +20,5 @@ export const GoodsList: React.FC<Props> = ({ goods }) => {
     </ul>
   );
 };
+
+export default React.memo(GoodsList);

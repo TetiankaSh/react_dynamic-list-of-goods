@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.scss';
-import { GoodsList } from './GoodsList';
+import GoodsList from './GoodsList';
 
 import { getAll, get5First, getRedGoods } from './api/goods';
 import { Good } from './types/Good';
@@ -11,21 +11,36 @@ export const App: React.FC = () => {
   const [goods, setGoods] = useState<Good[]>([]);
 
   const loadAllGoods = async () => {
-    const allGoods = await getAll();
+    try {
+      const allGoods = await getAll();
 
-    setGoods(allGoods);
+      setGoods(allGoods);
+    } catch (error) {
+      // eslint-disable-next-line
+      console.error('Failed to load all goods:', error);
+    }
   };
 
   const loadFiveGoods = async () => {
-    const allGoods = await get5First();
+    try {
+      const allGoods = await get5First();
 
-    setGoods(allGoods);
+      setGoods(allGoods);
+    } catch (error) {
+      // eslint-disable-next-line
+      console.error('Failed to load 5 goods:', error);
+    }
   };
 
   const loadRedGoods = async () => {
-    const allGoods = await getRedGoods();
+    try {
+      const allGoods = await getRedGoods();
 
-    setGoods(allGoods);
+      setGoods(allGoods);
+    } catch (error) {
+      // eslint-disable-next-line
+      console.error('Failed to load red goods:', error);
+    }
   };
 
   return (
