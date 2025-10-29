@@ -13,7 +13,11 @@ export const GoodsList: React.FC<Props> = ({ goods }) => {
   return (
     <ul data-cy="goods-list">
       {goods.map(good => (
-        <li key={good.id} data-cy="good" style={{ color: good.color }}>
+        <li
+          key={good.id}
+          data-cy="good"
+          style={{ backgroundColor: good.color }}
+        >
           {good.name}
         </li>
       ))}
